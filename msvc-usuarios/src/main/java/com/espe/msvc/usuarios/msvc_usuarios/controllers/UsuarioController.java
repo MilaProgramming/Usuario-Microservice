@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200", "http://localhost:9876",
-        "http://angular-app:80" })
+        "http://angular-app:80", "http://localhost:8080" })
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
