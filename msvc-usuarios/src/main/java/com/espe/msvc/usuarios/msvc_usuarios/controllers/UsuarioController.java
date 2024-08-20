@@ -16,7 +16,8 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4200", "http://localhost:9876"})
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200", "http://localhost:9876",
+        "http://angular-app:80" })
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
@@ -25,7 +26,7 @@ public class UsuarioController {
 
     private static ResponseEntity<Map<String, String>> validar(BindingResult result) {
         Map<String, String> errores = new HashMap<>();
-        result.getFieldErrors().forEach(err ->{
+        result.getFieldErrors().forEach(err -> {
             errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
         });
         return ResponseEntity.badRequest().body(errores);
@@ -54,7 +55,6 @@ public class UsuarioController {
         Usuario nuevoUsuario = service.guardar(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
     }
-
 
     @PutMapping("/editar/{id}")
     public ResponseEntity<?> editar(@Valid @RequestBody Usuario usuario, @PathVariable Long id, BindingResult result) {
