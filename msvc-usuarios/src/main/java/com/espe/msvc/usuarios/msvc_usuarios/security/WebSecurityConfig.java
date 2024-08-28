@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-    public static final String USER = "user";
+    public static final String USER = "usuario";
     public static final String ADMIN ="admin";
     private final JwtAuthConverter jwtAuthConverter;
 
